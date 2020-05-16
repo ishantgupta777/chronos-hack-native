@@ -26,6 +26,7 @@ import CheckMail from './src/Screens/profile/CheckMail';
 import ForgotPassword from './src/Screens/password/ForgotPassword';
 import NewPassword from './src/Screens/password/NewPassword';
 import PasswordChanged from './src/Screens/password/PasswordChanged';
+import DashboardActivity from './src/Screens/Dashboard/DashboardScreen'
 
 
 const SignUpScreen = ({navigation}) => {
@@ -132,6 +133,19 @@ const PasswordChangedScreen = ({navigation}) => {
   );
 };
 
+const DashboardScreen = ({navigation}) => {
+  return (
+    <ScrollView style={styles.scrollView}>
+      <View >
+        <StatusBar barStyle="dark-content" />
+        <SafeAreaView>
+          <DashboardActivity/>
+        </SafeAreaView>
+      </View>
+    </ScrollView>
+  );
+};
+
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: '#ECEDFF',
@@ -153,6 +167,7 @@ function App() {
         <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
         <Stack.Screen name="NewPassword" component={NewPasswordScreen} />
         <Stack.Screen name="PasswordChanged" component={PasswordChangedScreen} />
+        <Stack.Screen name="Dashboard" component={DashboardScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

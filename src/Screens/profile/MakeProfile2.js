@@ -4,9 +4,11 @@ import { StyleSheet, View, Text,Dimensions } from 'react-native';
 import HeaderText from '../../Components/HeaderText'
 import InputField from '../../Components/InputField'
 import FormButton from '../../Components/FormButton'
+import { useNavigation } from '@react-navigation/native';
 
 const MakeProfile2 = () => {
-
+  const navigation = useNavigation()
+  
 	return (
 			<View style={styles.profileContainer}>
 				<HeaderText headingText={['make','profile']} />
@@ -16,7 +18,7 @@ const MakeProfile2 = () => {
 				<InputField placeholder='Skills' />
 
         <View style={styles.footerButton}>
-          <FormButton style={styles.button} onPress={()=>{}}>submit</FormButton>
+          <FormButton style={styles.button} onPress={()=>navigation.navigate('Dashboard')}>submit</FormButton>
           <View style={styles.stepsContainer}>
             <Text style={styles.boldFooterText}>Step 2</Text>
             <Text style={styles.footerText}> of 2</Text>

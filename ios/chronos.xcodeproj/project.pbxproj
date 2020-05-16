@@ -16,6 +16,9 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* chronosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* chronosTests.m */; };
+		7870E6573303413E9C7ADCF7 /* rubik.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FC8D8D17BA445C394613B91 /* rubik.ttf */; };
+		557C1AC7423A4B6BBD4BC318 /* ruda_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A90D341B7F1B4C5A9D7253F4 /* ruda_black.ttf */; };
+		B9AD6535D89B42AEBD747A1C /* ruda_reg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 022793B2F32C425BBBC8D7C9 /* ruda_reg.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		2D02E4901E0B4A5D006451C7 /* chronos-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "chronos-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		6FC8D8D17BA445C394613B91 /* rubik.ttf */ = {isa = PBXFileReference; name = "rubik.ttf"; path = "../assets/fonts/rubik.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A90D341B7F1B4C5A9D7253F4 /* ruda_black.ttf */ = {isa = PBXFileReference; name = "ruda_black.ttf"; path = "../assets/fonts/ruda_black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		022793B2F32C425BBBC8D7C9 /* ruda_reg.ttf */ = {isa = PBXFileReference; name = "ruda_reg.ttf"; path = "../assets/fonts/ruda_reg.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +146,7 @@
 				00E356EF1AD99517003FC87E /* chronosTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				905E1F91E97642FB90FA24EB /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -156,6 +163,17 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		905E1F91E97642FB90FA24EB /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				6FC8D8D17BA445C394613B91 /* rubik.ttf */,
+				A90D341B7F1B4C5A9D7253F4 /* ruda_black.ttf */,
+				022793B2F32C425BBBC8D7C9 /* ruda_reg.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -295,6 +313,9 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				7870E6573303413E9C7ADCF7 /* rubik.ttf in Resources */,
+				557C1AC7423A4B6BBD4BC318 /* ruda_black.ttf in Resources */,
+				B9AD6535D89B42AEBD747A1C /* ruda_reg.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
