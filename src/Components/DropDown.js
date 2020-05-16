@@ -7,15 +7,15 @@ import { View, Picker, StyleSheet } from "react-native";
   const placeholder = props.placeholder || 'Choose Option'
   return (
     <View style={styles.container}>
-      <Picker
-        selectedValue={selectedValue}
-        style={styles.picker}
-        mode='dropdown'
-        onValueChange={itemValue => setSelectedValue(itemValue)}
-      >
-        <Picker.Item label={placeholder} value={null} />
-        {options.map(option => <Picker.Item key={option} label={option} value={option} />)}
-      </Picker>
+      <View style={styles.picker}>
+        <Picker
+          selectedValue={selectedValue}
+          mode='dropdown'
+          onValueChange={itemValue => setSelectedValue(itemValue)}>
+          <Picker.Item label={placeholder} value={null} />
+          {options.map(option => <Picker.Item key={option} label={option} value={option} />)}
+        </Picker>
+      </View>
     </View>
   );
 }
@@ -28,9 +28,8 @@ const styles = StyleSheet.create({
   picker: {
     width: '80%',
     backgroundColor: 'white',
-    height: 35,
-    borderRadius: 6,
-    marginTop: 20
+    marginBottom: 20,
+    borderRadius: 6
   }
 });
 

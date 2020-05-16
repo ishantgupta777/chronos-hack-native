@@ -1,16 +1,19 @@
-import {StyleSheet} from 'react-native'
+import {StyleSheet, Dimensions} from 'react-native'
 import Colors from "./colors"
 
+let ScreenHeight = Dimensions.get("window").height;
 const styles = StyleSheet.create({
     container: {
       flex: 1,
+      height: ScreenHeight,
+      flexDirection: "column",
       backgroundColor: Colors.complementary_blue,
     },
     title:{
-      fontSize: 100,
+      fontSize: 80,
       textAlign: 'right',
       marginTop: 20,
-      marginBottom: -75,
+      marginBottom: -60,
       marginRight: 10,
       fontFamily: "rubik",
       color:Colors.dark_blue
@@ -21,6 +24,7 @@ const styles = StyleSheet.create({
       marginTop: 20,
       marginRight: 20,
       marginLeft: 70,
+      marginBottom: 10,
       fontFamily: "rubik",
       color:Colors.white
     },
@@ -49,6 +53,21 @@ const styles = StyleSheet.create({
       flex: 1,
       flexGrow: 1,
       backgroundColor: Colors.complementary_blue
+    },
+    bold_text:{
+      fontSize: 18,
+      textAlign: 'right',
+      marginBottom: 0,
+      fontFamily: "ruda_black",
+      color:Colors.dark_blue,
+    },
+    reg_text:{
+      fontSize: 18,
+      textAlign: 'right',
+      marginBottom: 0,
+      marginRight: 20,
+      fontFamily: "ruda_reg",
+      color:Colors.dark_blue,
     },
   });
 

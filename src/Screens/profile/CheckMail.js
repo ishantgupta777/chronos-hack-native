@@ -2,6 +2,9 @@ import React from 'react';
 import { StyleSheet, View, Text,Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+import globalStyles from '../../../values/styles'
+import Colors from '../../../values/colors'
+
 import HeaderText from '../../Components/HeaderText'
 import FormButton from '../../Components/FormButton'
 
@@ -10,17 +13,18 @@ const MakeProfile2 = () => {
 	const navigation = useNavigation();
 
 	return (
-			<View style={styles.profileContainer}>
-				<HeaderText headingText={['check','email']} />
+    <View style={globalStyles.container}>
+				<Text style={globalStyles.title}>check</Text>
+        <Text style={globalStyles.title}>mail</Text>
 
-        <View style={styles.textContainer}>
+        <View style={{flex: 1, flexGrow: 1, marginTop: 150, marginLeft: 20}}>
           <Text style={styles.text} > A verification mail has been sent to </Text>
           <Text style={styles.boldText}> email@example.com </Text>
           <Text style={styles.text}> Please check your email</Text>
         </View>
-
+        <View style={{flex: 1, flexGrow: 1}}/>
         <View style={styles.footerButton}>
-          <FormButton style={styles.button} onPress={()=> navigation.navigate('Login') }>login</FormButton>
+          <FormButton style={styles.button} onPress={()=> navigation.navigate('MakeProfile1') }>next</FormButton>
         </View>
 			</View>
 	);
@@ -52,17 +56,18 @@ const styles = StyleSheet.create({
   },
   text:{
     fontSize: 18,
-    color: '#000239',
-    textAlign: 'center'
+    textAlign: 'left',
+    marginLeft: 20,
+    fontFamily: "ruda_reg",
+    color:Colors.dark_blue,
   },
   boldText: {
     fontSize: 18,
-    color: '#000239',
-    textAlign: 'center',
-    fontWeight: 'bold'
-  },
-  textContainer: {
-    marginTop: 20
+    textAlign: 'left',
+    marginBottom: 30,
+    marginLeft: 20,
+    fontFamily: "ruda_black",
+    color:Colors.dark_blue,
   }
 })
 

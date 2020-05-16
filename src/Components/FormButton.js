@@ -1,11 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
+import globalStyles from '../../values/styles'
+
 const FormButton = (props) => {
   return (
     <TouchableOpacity onPress={props.onPress} style={styles.buttonContainer}>
       <View style={{...styles.button, ...props.style}}>
-        <Text style={{...styles.buttonText, ...styles.buttonTextStyle}}>
+        <Text style={{...globalStyles.buttonText, ...styles.buttonTextStyle}}>
           {props.children}
         </Text>
       </View>
@@ -15,8 +17,11 @@ const FormButton = (props) => {
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    width: 220,
     alignSelf: 'flex-end',
+    padding: 5,
+    position: "relative",
+    bottom: 0,
+    right: 0
   },
   button: {
     backgroundColor: '#000239',
@@ -26,8 +31,10 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
     borderBottomRightRadius: 3,
     marginTop: 25,
-    marginRight: 10,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    position: "relative",
+    bottom: 0,
+    right: 10
   },
   buttonText: {
     fontSize: 30,
