@@ -27,63 +27,63 @@ const SignUp = () => {
 	const navigation = useNavigation();
 
 	const handleSubmit = async () => {
-		// if(!firstName || !firstName.trim()){
-		// 	setError('Please Fill First Name')
-		// 	return
-		// }
+		if(!firstName || !firstName.trim()){
+			setError('Please Fill First Name')
+			return
+		}
 
-		// if(!lastName || !lastName.trim()){
-		// 	setError('Please Fill Last Name')
-		// 	return
-		// }
+		if(!lastName || !lastName.trim()){
+			setError('Please Fill Last Name')
+			return
+		}
 
-		// if(!email || !email.trim()){
-		// 	setError('Please Fill Email')
-		// 	return
-		// }
+		if(!email || !email.trim()){
+			setError('Please Fill Email')
+			return
+		}
 
-		// if(!validator.isEmail(email)){
-		// 	setError('Please Fill Correct Email')
-		// 	return
-		// }
+		if(!validator.isEmail(email)){
+			setError('Please Fill Correct Email')
+			return
+		}
 
-		// if(!password){
-		// 	setError('Please Fill Password')
-		// 	return
-		// }
+		if(!password){
+			setError('Please Fill Password')
+			return
+		}
 
-		// if(password !== confirmPassword){
-		// 	setError('Password did not match')
-		// 	return
-		// }
+		if(password !== confirmPassword){
+			setError('Password did not match')
+			return
+		}
 
-		// if(!termsAccepted){
-		// 	setError('Please accept terms and conditions')
-		// 	return
-		// }
+		if(!termsAccepted){
+			setError('Please accept terms and conditions')
+			return
+		}
 
-		// const firstNameTrim = firstName.trim();
-		// const lastNameTrim = lastName.trim();
-		// const emailTrim = email.trim().toLowerCase();
-		// const mobileNoTrim = mobileNo.trim();
+		const firstNameTrim = firstName.trim();
+		const lastNameTrim = lastName.trim();
+		const emailTrim = email.trim().toLowerCase();
+		const mobileNoTrim = mobileNo.trim();
 
-		// try{
-		// 	const signUpObj = {
-		// 		firstName : firstNameTrim,
-		// 		lastName : lastNameTrim,
-		// 		email : emailTrim,
-		// 		mobileNo : mobileNoTrim,
-		// 		password
-		// 	}
-		// 	const res = await axios.post('http://192.168.99.100:4192/api/v1/signup',signUpObj)
-		// 	if(res.data.success)
+		try{
+			const signUpObj = {
+				firstName : firstNameTrim,
+				lastName : lastNameTrim,
+				email : emailTrim,
+				mobileNo : mobileNoTrim,
+				password
+			}
+			const res = await axios.post('http://192.168.99.100:4192/api/v1/signup',signUpObj)
+			if(res.data.success)
 				navigation.navigate('CheckMail');
-		// 	else
-		// 		setError(res.data.error.message)
-		// }catch(err){
-		// 	setError('There is some error in signing you up')
-		// 	console.log(res.data.error.message);
-		// }
+			else
+				setError(res.data.error.message)
+		}catch(err){
+			setError('There is some error in signing you up')
+			console.log(res.data.error.message);
+		}
 	}
 
 	return (

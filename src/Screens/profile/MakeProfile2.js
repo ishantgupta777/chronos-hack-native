@@ -9,7 +9,7 @@ import FormButton from '../../Components/FormButton'
 
 import {setProfile} from '../../redux/actions/profile' 
 
-const MakeProfile2 = async (props) => {
+const MakeProfile2 = (props) => {
 
   const [role, setRole] = useState(null);
   const [rank, setRank] = useState(null);
@@ -28,19 +28,19 @@ const MakeProfile2 = async (props) => {
       rank,
       skill
     })
-		try{
+
+    try{
 			const profileObj = props.profile
-			const res = await axios.post('http://192.168.99.100:4192/api/v1/completeProfile/',profileObj)
-			console.log(res.data)
+			const res = await axios.post('http://192.168.99.100:4192/api/v1/completeProfile',profileObj)
 			if(res.data.success){
-        // navigation.navigate('MakeProfile1');
+        // navigation.navigate('CheckMail');
       }
 			else
 				setError(res.data.error.message)
-      }catch(err){
-        console.log(err)
-        setError('There is some error in signing you up')
-      }
+		}catch(err){
+			setError('There is some error in submitting your profile')
+			console.log(res.data.error.message);
+		}
 
   }
 

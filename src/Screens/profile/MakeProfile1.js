@@ -25,7 +25,7 @@ const MakeProfile1 = (props) => {
     //   setError('Please fill all fields');
     //   return
     // }
-    props.setProfile({
+  props.setProfile({
       city,
       college,
       year,
