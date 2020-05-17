@@ -2,18 +2,17 @@ import React, { Component } from 'react'
 import { View, ScrollView, StyleSheet, Text, Header, Image, ToastAndroid, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import styles from '../../../values/styles'
+import globalStyles from '../../../values/styles'
 import Colors from "../../../values/colors"
 
 import { list } from "../../../values/sampledata"
+import StudentItemBox from '../../Components/StudentItemBox'
 
-import DashboardRow from '../../Components/DashboardRow';
 
-
-function DashboardActivity(){
+function StudentActivity(){
     const navigation = useNavigation()
     return(
-        <ScrollView style={styles.container}>
+        <ScrollView style={globalStyles.container}>
             <View style={{flexDirection: 'row', padding: 10}}>
                 <TouchableWithoutFeedback onPress={() => navigation.openDrawer()}>
                     <Image style={{margin: 10}} source={require('../../../assets/ic_menu.png')} />
@@ -29,20 +28,15 @@ function DashboardActivity(){
                     <Image style={{margin: 10}} source={require('../../../assets/ic_profile.png')} />
                 </TouchableWithoutFeedback>
             </View>
-            <Text style={ styles.title }>dash</Text>
-            <Text style={ styles.title }>board</Text>
-            <Text style={ styles.secondary_text }>Click on any student to know more</Text>
-            <View style={{
-                flexDirection: "row",
-                marginHorizontal: 20,
-            }}>
-                <Text style={localStyles.bold_text}>Name</Text>
-                <Text style={localStyles.bold_text}>Role</Text>
-                <Text style={localStyles.bold_text}>Rank</Text>
+            <Text style={ globalStyles.title }>stu</Text>
+            <Text style={ globalStyles.title }>dents</Text>
+            <View style={{ flexDirection: 'row', marginStart: 20, marginTop: 70 }}>
+                <Text style={styles.reg_text}>Showing</Text>
+                <Text style={styles.bold_text}> {list.length} students</Text>
             </View>
-            <View style={localStyles.listContainer}>
+            <View style={styles.listContainer}>
                 {list.map((person, i) => 
-                    <DashboardRow key={i} content={person} clickFunction={() => ToastAndroid.show("Todo", ToastAndroid.SHORT)}/>
+                    <StudentItemBox key={i} content={person} clickFunction={() => {}}/>
                     )
                 }      
             </View>
@@ -50,19 +44,24 @@ function DashboardActivity(){
     )
 }
 
-const localStyles = StyleSheet.create({
+const styles = StyleSheet.create({
     bold_text:{
-        flex: 1,
-        fontSize: 18,
+        fontSize: 24,
         textAlign: 'center',
-        marginTop: 50,
         marginBottom: 0,
         fontFamily: "ruda_black",
         color:Colors.dark_blue,
-      },
+    },
+    reg_text:{
+        fontSize: 24,
+        textAlign: 'left',
+        marginBottom: 0,
+        fontFamily: "ruda_reg",
+        color:Colors.dark_blue,
+    },
     listContainer: {
         flex: 1,
         paddingBottom: 50
     }
 })
-export default DashboardActivity
+export default StudentActivity

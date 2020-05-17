@@ -28,6 +28,7 @@ import ForgotPassword from './src/Screens/password/ForgotPassword';
 import NewPassword from './src/Screens/password/NewPassword';
 import PasswordChanged from './src/Screens/password/PasswordChanged';
 import DashboardActivity from './src/Screens/Dashboard/DashboardScreen'
+import StudentActivity from './src/Screens/Students/StudentsScreen';
 
 import DrawerView from './src/Components/DrawerView'
 import Colors from './values/colors';
@@ -135,7 +136,7 @@ const PasswordChangedScreen = ({navigation}) => {
     </ScrollView>
   );
 };
-var navigator
+
 const DashboardScreen = ({navigation}) => {
   navigator = useNavigation()
   return (
@@ -144,6 +145,20 @@ const DashboardScreen = ({navigation}) => {
         <StatusBar barStyle="dark-content" />
         <SafeAreaView>
           <DashboardActivity/>
+        </SafeAreaView>
+      </View>
+    </ScrollView>
+  );
+};
+
+const StudentScreen = ({navigation}) => {
+  navigator = useNavigation()
+  return (
+    <ScrollView style={styles.scrollView}>
+      <View >
+        <StatusBar barStyle="dark-content" />
+        <SafeAreaView>
+          <StudentActivity/>
         </SafeAreaView>
       </View>
     </ScrollView>
@@ -181,7 +196,7 @@ function App() {
     <NavigationContainer>
       <Drawer.Navigator drawerContent={() => <DrawerView navigator={navigator}/>}>
         <Drawer.Screen name="Home" component={DashboardScreen}/>
-        <Drawer.Screen name="Students" children={createHomeStack}/>
+        <Drawer.Screen name="Students" component={StudentActivity}/>
       </Drawer.Navigator>
     </NavigationContainer>
   );
