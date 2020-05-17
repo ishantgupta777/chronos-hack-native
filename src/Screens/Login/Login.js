@@ -17,39 +17,39 @@ const Login = () => {
 	const [error, setError] = useState(null);
 
 	const handleLogin = async () => {
-		// if(!email || !email.trim()){
-		// 	setError('Please Fill Email')
-		// 	return
-		// }
+		if(!email || !email.trim()){
+			setError('Please Fill Email')
+			return
+		}
 
-		// if(!validator.isEmail(email)){
-		// 	setError('Please Fill Correct Email')
-		// 	return
-		// }
+		if(!validator.isEmail(email)){
+			setError('Please Fill Correct Email')
+			return
+		}
 
-		// if(!password){
-		// 	setError('Please Fill Password')
-		// 	return
-		// }
+		if(!password){
+			setError('Please Fill Password')
+			return
+		}
 
-		// const emailTrim = email.trim().toLowerCase();
+		const emailTrim = email.trim().toLowerCase();
 
-		// try{
-		// 	const loginObj = {
-		// 		email : emailTrim,
-		// 		password
-		// 	}
-		// 	const res = await axios.post('http://192.168.99.100:4192/api/v1/login',loginObj)
-		// 	console.log(res.data)
-		// 	// because mail verification isn't completed yet from the backend, that's why its a workaround for test, after completion we will change if condition to see user is verified
-		// 	if(res.data.error.msg == 'Your email has not been verified')
+		try{
+			const loginObj = {
+				email : emailTrim,
+				password
+			}
+			const res = await axios.post('http://192.168.99.100:4192/api/v1/login',loginObj)
+			console.log(res.data)
+			// because mail verification isn't completed yet from the backend, that's why its a workaround for test, after completion we will change if condition to see user is verified
+			if(res.data.error.msg == 'Your email has not been verified')
 				navigation.navigate('MakeProfile1');
-		// 	else
-		// 		setError(res.data.error.message)
-		// }catch(err){
-		// 	console.log(err)
-		// 	setError('There is some error in signing you up')
-		// }
+			else
+				setError(res.data.error.message)
+		}catch(err){
+			console.log(err)
+			setError('There is some error in signing you up')
+		}
 
 	}
 

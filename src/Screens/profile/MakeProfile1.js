@@ -21,10 +21,10 @@ const MakeProfile1 = (props) => {
   const [error, setError] = useState(null);
   
   const handleNext = () => {
-    // if(!city || !college || !year || !branch || !registrationNo ){
-    //   setError('Please fill all fields');
-    //   return
-    // }
+    if(!city || !college || !year || !branch || !registrationNo ){
+      setError('Please fill all fields');
+      return
+    }
   props.setProfile({
       city,
       college,
