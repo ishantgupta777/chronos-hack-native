@@ -29,6 +29,7 @@ import NewPassword from './src/Screens/password/NewPassword';
 import PasswordChanged from './src/Screens/password/PasswordChanged';
 import DashboardActivity from './src/Screens/Dashboard/DashboardScreen'
 import StudentActivity from './src/Screens/Students/StudentsScreen';
+import ProfileActivity from './src/Screens/profile/ProfileScreen';
 
 import DrawerView from './src/Components/DrawerView'
 import Colors from './values/colors';
@@ -164,6 +165,19 @@ const StudentScreen = ({navigation}) => {
     </ScrollView>
   );
 };
+const ProfileScreen = ({navigation}) => {
+  navigator = useNavigation()
+  return (
+    <ScrollView style={styles.scrollView}>
+      <View >
+        <StatusBar barStyle="dark-content" />
+        <SafeAreaView>
+          <ProfileActivity/>
+        </SafeAreaView>
+      </View>
+    </ScrollView>
+  );
+};
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -175,10 +189,11 @@ const styles = StyleSheet.create({
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
+const HomeStack = createStackNavigator();
+const StudentStack = createStackNavigator();
 
-const createHomeStack = () => (
+const createSignUpStack = () => (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      
       <Stack.Screen name="SignUp" component={SignUpScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="MakeProfile1" component={MakeProfile1Screen} />
@@ -191,12 +206,26 @@ const createHomeStack = () => (
     </Stack.Navigator>
 )
 
+const createDashboardStack = () => (
+  <HomeStack.Navigator screenOptions={{headerShown: false}}>
+    <HomeStack.Screen name="Dashboard" component={DashboardScreen} />
+    <HomeStack.Screen name="Profile" component={ProfileScreen} />
+  </HomeStack.Navigator>
+)
+
+const createStudentsStack = () => (
+  <StudentStack.Navigator initialRouteName="Students" screenOptions={{headerShown: false}}>
+    <StudentStack.Screen name="Students" component={StudentScreen} />
+    <StudentStack.Screen name="Profile" component={ProfileScreen} />
+  </StudentStack.Navigator>
+)
+
 function App() {
   return (  
     <NavigationContainer>
       <Drawer.Navigator drawerContent={() => <DrawerView navigator={navigator}/>}>
-        <Drawer.Screen name="Home" component={DashboardScreen}/>
-        <Drawer.Screen name="Students" component={StudentActivity}/>
+        <Drawer.Screen name="Home" component={createDashboardStack}/>
+        <Drawer.Screen name="Students" component={createStudentsStack}/>
       </Drawer.Navigator>
     </NavigationContainer>
   );

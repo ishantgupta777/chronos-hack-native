@@ -25,7 +25,7 @@ function DashboardActivity(){
                 <TouchableWithoutFeedback onPress={() => {}}>
                     <Image style={{margin: 10}} source={require('../../../assets/ic_notif.png')} />
                 </TouchableWithoutFeedback>
-                <TouchableWithoutFeedback onPress={() => {}}>
+                <TouchableWithoutFeedback onPress={() => navigation.navigate('Profile')}>
                     <Image style={{margin: 10}} source={require('../../../assets/ic_profile.png')} />
                 </TouchableWithoutFeedback>
             </View>
