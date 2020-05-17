@@ -1,28 +1,37 @@
 import React from 'react';
-import { StyleSheet, View, Dimensions } from 'react-native';
+import { StyleSheet, View, Dimensions, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import globalStyles from '../../../values/styles'
+import Colors from '../../../values/colors'
 
 import HeaderText from '../../Components/HeaderText'
 import InputField from '../../Components/InputField'
 import FormButton from '../../Components/FormButton'
 import FormTextButton from '../../Components/FormTextButton'
 
-const SignUp = () => {
+const Login = () => {
 
 	const navigation = useNavigation();
 
 	return (
-			<View style={styles.loginContainer}>
-				<HeaderText headingText={['log','in']} />
+			<View style={globalStyles.container}>
+				<Text style={globalStyles.title}>log</Text>
+        		<Text style={globalStyles.title}>in</Text>
 				
-				<InputField placeholder='Email' autoCompleteType='email' textContentType='emailAddress' />
-				<InputField placeholder='Password' autoCompleteType='password' textContentType='password' secureTextEntry={true} />
-
-				<FormTextButton buttonTextStyle={styles.forgotButton} onPress={()=> navigation.navigate('ForgotPassword') }> Forgot Password? </FormTextButton>
-
-				<View style={styles.footerButton}>
-					<FormButton onPress={()=> navigation.navigate('MakeProfile1') }>Login</FormButton>
-					<FormTextButton onPress={()=> navigation.navigate('SignUp') }> Don't have an account? SignUp</FormTextButton>
+				<View style={{flex: 1, flexGrow: 1, marginTop: 100}}>
+					<InputField placeholder='Email' autoCompleteType='email' textContentType='emailAddress' />
+					<InputField placeholder='Password' autoCompleteType='password' textContentType='password' secureTextEntry={true} />
+					<FormTextButton buttonTextStyle={styles.termsTextBold} onPress={()=> navigation.navigate('ForgotPassword') }> Forgot Password? </FormTextButton>
+				</View>
+				<View style={{flex: 1, flexGrow: 1}}/>
+				<View style={{flex: 1, flexGrow: 1}}>
+				<FormButton onPress={()=>navigation.navigate("Dashboard")}>submit</FormButton>
+					<View style={{width: "100%", flexDirection: 'row'}}>
+						<View style={{flex: 1}}/>
+						<Text style={styles.termsText}>Don't have an account? </Text>
+						<Text style={styles.termsTextBold} onPress={() => navigation.navigate("Login")}>Signup</Text>
+					</View>
 				</View>
 			</View>
 	);
@@ -46,7 +55,20 @@ const styles = StyleSheet.create({
 	forgotButton: {
 		fontWeight: '700',
 		fontSize: 17
+	},
+	termsText: {
+		fontSize: 18,
+		textAlign: 'right',
+		marginBottom: 0,
+		fontFamily: "ruda_reg",
+		color:Colors.dark_blue,
+	},
+	termsTextBold: {
+		fontSize: 18,
+		fontFamily: "ruda_black",
+		marginRight: 20,
+		color: Colors.dark_blue
 	}
 })
 
-export default SignUp;
+export default Login;

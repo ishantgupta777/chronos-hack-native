@@ -19,14 +19,13 @@ const InputField = (props) => {
 const styles = StyleSheet.create({
 		inputFieldContainer:{
 			justifyContent: 'center',
-			flexDirection: 'row'
+			flexDirection: 'row',
 		},
 		inputField: {
 			width: '80%',
 			backgroundColor: 'white',
-			height: 35,
 			borderRadius: 6,
-			marginTop: 20
+			marginBottom: 20
 		}
 })
 

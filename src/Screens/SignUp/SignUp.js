@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
-import { StyleSheet, ScrollView, Text, View, CheckBox } from 'react-native';
+import { StyleSheet, ScrollView, Text, View, CheckBox, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import globalStyles from '../../../values/styles'
+import Colors from '../../../values/colors'
 
 import HeaderText from '../../Components/HeaderText'
 import InputField from '../../Components/InputField'
@@ -17,51 +20,66 @@ const SignUp = () => {
 	const navigation = useNavigation();
 
 	const handleSubmit = () => {
-		navigation.navigate('CheckMail');
+		navigation.push('CheckMail');
 	}
 
 	return (
-		<ScrollView>
-			<HeaderText headingText={['Sign','up']} />
+		<View style={globalStyles.container}>
+			<Text style={globalStyles.title}>sign</Text>
+        	<Text style={globalStyles.title}>up</Text>
 	
-			<InputField placeholder='Name' autoCompleteType='name' textContentType='name' />
-			<InputField placeholder='Email' autoCompleteType='email' textContentType='emailAddress' />
-			<InputField placeholder='Phone Number' autoCompleteType='tel' textContentType='telephoneNumber' />
-			<InputField placeholder='Password' autoCompleteType='password' textContentType='password' secureTextEntry={true} />
-			<InputField placeholder='Confirm Password' autoCompleteType='password' textContentType='password' secureTextEntry={true} />
-
-			<View style={styles.terms}>
+			<View style={{flex: 1, flexGrow: 1, marginTop: 100}}>
+				<InputField placeholder='Name' autoCompleteType='name' textContentType='name' />
+				<InputField placeholder='Email' autoCompleteType='email' textContentType='emailAddress' />
+				<InputField placeholder='Phone Number' autoCompleteType='tel' textContentType='telephoneNumber' />
+				<InputField placeholder='Password' autoCompleteType='password' textContentType='password' secureTextEntry={true} />
+				<InputField placeholder='Confirm Password' autoCompleteType='password' textContentType='password' secureTextEntry={true} />
+			</View>
+			<View style={{flex: 1, flexGrow: 1}}/>
+			<View style={{width: "90%", flexDirection: 'row', marginStart: 20, alignItems: "center"}}>
 				<CheckBox
 					value={termsAccepted}
 					onValueChange={changeTermsAccepted}
 				/>
 				<Text style={styles.termsText}>I agree to </Text>
-				<Text style={styles.termsTextBold}>Terms And Conditions	</Text>
+				<Text style={globalStyles.bold_text}>Terms And Conditions</Text>
 			</View>
 
-			<FormButton onPress={handleSubmit}>Submit</FormButton>
-
-			<FormTextButton onPress={()=> navigation.navigate('Login') }> Already a Member? Login</FormTextButton>
-		</ScrollView>
+			<View style={{flex: 1, flexGrow: 1}}>
+				<FormButton onPress={()=>navigation.navigate("CheckMail")}>submit</FormButton>
+				<View style={{width: "100%", flexDirection: 'row'}}>
+					<View style={{flex: 1}}/>
+					<Text style={styles.termsText}>Already have an account? </Text>
+					<Text style={styles.termsTextBold} onPress={() => navigation.navigate("Login")}>Login</Text>
+				</View>
+			</View>
+		</View>
 	);
 };
 
+let ScreenHeight = Dimensions.get("window").height;
 const styles = StyleSheet.create({
 	terms: {
 		flexDirection: 'row',
 		width: '90%',
 		justifyContent: 'center',
 		marginTop: 20,
-		alignItems: 'center'
+		marginStart: 20,
+		alignItems: 'center',
+		height: ScreenHeight
 	},
 	termsText: {
-		fontWeight: '500',
-		fontSize: 16
+		fontSize: 18,
+		textAlign: 'right',
+		marginBottom: 0,
+		fontFamily: "ruda_reg",
+		color:Colors.dark_blue,
 	},
 	termsTextBold: {
-		fontWeight: '700',
 		fontSize: 18,
-		color: '#000239'
+		fontFamily: "ruda_black",
+		marginRight: 20,
+		color: Colors.dark_blue
 	}
 })
 
