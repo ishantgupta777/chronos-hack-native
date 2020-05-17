@@ -1,3 +1,3 @@
-export const sampleActions = {
-    FIRST_ACTION: 'FIRST_ACTION'
+export const profileActionTypes = {
+    PROFILE_SET: 'profileSet'
 };

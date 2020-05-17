@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, Picker, StyleSheet } from "react-native";
 
  const DropDown = (props) => {
-  const [selectedValue, setSelectedValue] = useState(null);
   const options = props.options || [];
   const placeholder = props.placeholder || 'Choose Option'
   return (
     <View style={styles.container}>
       <Picker
-        selectedValue={selectedValue}
+        selectedValue={props.value}
         style={styles.picker}
         mode='dropdown'
-        onValueChange={itemValue => setSelectedValue(itemValue)}
+        onValueChange={itemValue => props.setValue(itemValue)}
       >
         <Picker.Item label={placeholder} value={null} />
         {options.map(option => <Picker.Item key={option} label={option} value={option} />)}
