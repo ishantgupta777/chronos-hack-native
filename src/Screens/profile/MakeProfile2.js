@@ -6,11 +6,13 @@ import { connect } from 'react-redux';
 import HeaderText from '../../Components/HeaderText'
 import InputField from '../../Components/InputField'
 import FormButton from '../../Components/FormButton'
+import { useNavigation } from '@react-navigation/native';
 
 import {setProfile} from '../../redux/actions/profile' 
 
 const MakeProfile2 = (props) => {
 
+  const navigation = useNavigation()
   const [role, setRole] = useState(null);
   const [rank, setRank] = useState(null);
   const [skill, setSkill] = useState(null);
@@ -18,10 +20,10 @@ const MakeProfile2 = (props) => {
   const [error, setError] = useState(null);
 
   const handleSubmit = async () => {
-    // if(!role || !rank || !skill ){
-    //   setError('Please fill all fields');
-    //   return
-    // }
+    if(!role || !rank || !skill ){
+      setError('Please fill all fields');
+      return
+    }
 
     props.setProfile({
       role,
@@ -33,13 +35,13 @@ const MakeProfile2 = (props) => {
 			const profileObj = props.profile
 			const res = await axios.post('http://192.168.99.100:4192/api/v1/completeProfile',profileObj)
 			if(res.data.success){
-        // navigation.navigate('CheckMail');
+        navigation.navigate('Dashboard')
       }
 			else
 				setError(res.data.error.message)
 		}catch(err){
 			setError('There is some error in submitting your profile')
-			console.log(res.data.error.message);
+			console.log(err);
 		}
 
   }
