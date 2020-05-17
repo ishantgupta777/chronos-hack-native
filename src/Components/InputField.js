@@ -11,6 +11,8 @@ const InputField = (props) => {
 					autoCompleteType={props.autoCompleteType || 'off'}
 					textContentType={props.textContentType || 'none'}
 					secureTextEntry={props.secureTextEntry || false}
+					value={props.value}
+					onChangeText={text => props.setValue(text)}
 				/>
       </View>
 	);

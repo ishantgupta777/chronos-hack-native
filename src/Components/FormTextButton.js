@@ -16,6 +16,7 @@ const FormTextButton = (props) => {
 const styles = StyleSheet.create({
   buttonContainer: {
     alignSelf: 'flex-end',
+    marginBottom: 15,
   },
   button: {
     backgroundColor: 'transparent',
