@@ -20,7 +20,7 @@ const SignUp = () => {
 	const navigation = useNavigation();
 
 	const handleSubmit = () => {
-		navigation.navigate('CheckMail');
+		navigation.push('CheckMail');
 	}
 
 	return (
